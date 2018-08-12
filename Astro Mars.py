@@ -38,12 +38,12 @@ R1=(r1*psol)/pmarte
 R2=(r2*ssol)/smarte
 R3=(r3*tsol)/tmarte
 R4=(r4*csol)/cmarte
-
+#print(R1,R2,R3,R4)
 #para graficar
 def xy(R,ang):
     return [R*np.cos(np.deg2rad(ang)),R*np.sin(np.deg2rad(ang))]
 R=[xy(R1,155),xy(R2,65),xy(R3,335),xy(R4,242)]
-
+#print(R)
 #Gráfica 1
 plt.figure(1)
 plt.scatter(R[0][0],R[0][1],color='g')
@@ -59,11 +59,13 @@ plt.axhline(0,0,1,linestyle='-',color='k')#eje x
 #Semieje mayor-menor
 a=(R1+R3)/2
 b=(R2+R4)/2
+#print(a,b)
 #Direccion del perihelio
 w_=335
 #Excentricidad
 c=(a-R3)
 e=c/a
+#print(c,e)
 #Inclinación
 def i(r,ang):
     return(r*np.tan(np.deg2rad(ang)))
@@ -73,6 +75,7 @@ Z3=i(R3-1,-6.62)
 Z4=i(R4-1,-1.19)
 Zo=0.052
 i=np.rad2deg(np.arctan(Zo/a))
+print(Z1,Z2,Z3,Z4,i)
 #Longitud del nodo ascendente
 Omega=50
 #Gráfica 2
@@ -83,4 +86,4 @@ plt.scatter(335,Z3,color='r')
 plt.scatter(242,Z4,color='y')
 plt.axhline(0,0,1,linestyle='-',color='k')#eje x
 plt.axis([0,360,-0.1,0.1])
-plt.grid(True)
+plt.grid(True) #cuadricula
